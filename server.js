@@ -4,13 +4,17 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const pokemon = require('./models/pokemon')
 
+// console.log(pokemon[148].name)
 
 //=========================
 //      Routes
 //=========================
+
+//INDEX
 app.get('/pokemon', (req, res) => {
-  res.send('<h1>POkemon INdex</h1>')
+  res.render('index.ejs', {pokemon})
 })
 
 //=========================
