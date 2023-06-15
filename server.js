@@ -4,7 +4,8 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const pokemon = require('./models/pokemon')
+const pokemon = require('./models/pokemon');
+const methodOverride = require("method-override")
 
 // console.log(`HP: ${pokemon[0].stats.hp}`)
 // console.log(`Attack: ${pokemon[0].stats.attack}`)
@@ -12,7 +13,8 @@ const pokemon = require('./models/pokemon')
 //=========================
 //      MiddleWare
 //=========================
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"))
 
 //=========================
 //      Routes
@@ -35,6 +37,11 @@ app.get('/pokemon/:id', (req, res) => {
   })
 })
 
+//UPDATE
+app.put('/pokemon/:id', (req, res) => {
+  pokemon[req.params.id] = req.body
+  res.redirect('/pokemon')
+})
 
 //CREATE
 app.post('/pokemon', (req, res) => {
