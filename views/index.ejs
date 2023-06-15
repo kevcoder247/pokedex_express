@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokemon Index</title>
+  <%-include('./partials/head.ejs')%>
 </head>
 <body>
   <h1>Pokemon Home</h1>
@@ -18,9 +16,11 @@
 
     <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE">
+
+      <a href="/pokemon/<%=i%>/edit">Edit</a>
     </form>
 
-    <a href="/pokemon/<%=i%>/edit">Edit</a>
+    
  <% } %>
 
 
