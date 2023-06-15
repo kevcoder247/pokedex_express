@@ -40,8 +40,17 @@ app.get('/pokemon/:id', (req, res) => {
 app.post('/pokemon', (req, res) => {
   pokemon.push(req.body)
   res.redirect('/pokemon')
-  console.log("hello")
+  console.log('New pokemon', req.body);
+});
+
+//EDIT
+app.get('/pokemon/:id/edit', (req, res) => {
+  res.render('edit.ejs', {
+    pokemon: pokemon[req.params.id],
+    index:req.params.id
+  })
 })
+
   
 
 //=========================
