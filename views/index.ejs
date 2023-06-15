@@ -7,11 +7,12 @@
 </head>
 <body>
   <h1>Pokemon Home</h1>
-  <%console.log(pokemon[0].name)%>
 
   <% for(let i = 0; i < pokemon.length; i++){ %>
     <p><%= i%> Name: <%= pokemon[i].name %></p>
+    <p>Type: <%= pokemon[i].type %></p>
     <img src="<%=pokemon[i].img %>" alt="">
  <% } %>
+ 
 </body>
 </html>

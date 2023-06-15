@@ -6,15 +6,24 @@ const app = express();
 const PORT = 3000;
 const pokemon = require('./models/pokemon')
 
-// console.log(pokemon[148].name)
+console.log(`HP: ${pokemon[0].stats.hp}`)
+console.log(`Attack: ${pokemon[0].stats.attack}`)
 
 //=========================
 //      Routes
 //=========================
 
 //INDEX
-app.get('/pokemon', (req, res) => {
+app.get('/pokemon/', (req, res) => {
   res.render('index.ejs', {pokemon})
+})
+
+//SHOW
+app.get('/pokemon/:id', (req, res) => {
+  res.render('show.ejs', {
+    pokemon: pokemon[req.params.id]
+  })
+  
 })
 
 //=========================
