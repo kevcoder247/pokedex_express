@@ -28,6 +28,12 @@ app.get('/pokemon/', (req, res) => {
 //NEW
 app.get('/pokemon/new', (req, res) => {
   res.render('new.ejs')
+});
+
+//DELETE
+app.delete('/pokemon/:id', (req, res) => {
+  pokemon.splice(req.params.id, 1)
+  res.redirect('/pokemon')
 })
 
 //SHOW
@@ -35,13 +41,13 @@ app.get('/pokemon/:id', (req, res) => {
   res.render('show.ejs', {
     pokemon: pokemon[req.params.id]
   })
-})
+});
 
 //UPDATE
 app.put('/pokemon/:id', (req, res) => {
   pokemon[req.params.id] = req.body
   res.redirect('/pokemon')
-})
+});
 
 //CREATE
 app.post('/pokemon', (req, res) => {
@@ -56,7 +62,7 @@ app.get('/pokemon/:id/edit', (req, res) => {
     pokemon: pokemon[req.params.id],
     index:req.params.id
   })
-})
+});
 
   
 
@@ -65,5 +71,5 @@ app.get('/pokemon/:id/edit', (req, res) => {
 //=========================
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
-})
+});
 
